@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="C·Kugua工作室管理系统">
+<meta name="author" content="C·Kugua工作室管理系统">
+<meta name="keyword" content="C·Kugua工作室管理系统">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../favicon.ico"/>
+<title>C·Kugua工作室管理系统</title>
+<!-- start: Css -->
+<link rel="stylesheet" type="text/css" href="../asset/css/bootstrap.min.css">
+<!-- plugins -->
+<link rel="stylesheet" type="text/css" href="../asset/css/plugins/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../asset/css/plugins/simple-line-icons.css"/>
+<link rel="stylesheet" type="text/css" href="../asset/css/plugins/animate.min.css"/>
+<link rel="stylesheet" type="text/css" href="../asset/css/plugins/fullcalendar.min.css"/>
+<link href="../asset/css/style.css" rel="stylesheet">
+<!-- end: Css -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="../asset/js/html5shiv.min.js"></script>
+      <script src="../asset/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body id="mimin" class="dashboard">
+<!-- start: Header -->
+<nav class="navbar navbar-default header navbar-fixed-top">
+  <div class="col-md-12 nav-wrapper">
+    <div class="navbar-header" style="width:100%;">
+      <div class="opener-left-menu is-open"> <span class="top"></span> <span class="middle"></span> <span class="bottom"></span> </div>
+      <a href="index.html" class="navbar-brand"> <b>C·Kugua工作室</b> </a>
+      <ul class="nav navbar-nav navbar-right user-nav">
+        <li class="user-name"><span></span></li>
+        <li class="dropdown avatar-dropdown"> <img src="../asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
+          <ul class="dropdown-menu user-dropdown">
+            <li class="logout"><a href="javascript:;"><span class="fa fa-power-off"></span> 退出登录</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- end: Header -->
+<div class="container-fluid mimin-wrapper"> 
+  <!-- start:Left Menu -->
+  <div id="left-menu">
+    <div class="sub-left-menu scroll">
+      <ul class="nav nav-list">
+        <li>
+          <div class="left-bg"></div>
+        </li>
+        <li class="ripple"><a href="index.html"><span class="fa-home fa"></span>首页<span class="fa-angle-right fa right-arrow text-right"></span></a></li>
+        <li class=" ripple"> <a class="tree-toggle nav-header"><span class="fa fa-check-square-o"></span> 客户管理 <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+          <ul class="nav nav-list tree">
+            <li><a href="customer.html">客户信息查询</a></li>
+            <li><a href="customeradd.html">新客户添加</a></li>
+          </ul>
+        </li>
+        <li class=" ripple"> <a class="tree-toggle nav-header"><span class="fa fa-check-square-o"></span> 项目管理 <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+          <ul class="nav nav-list tree">
+            <li><a href="project.html">项目信息查询</a></li>
+            <li><a href="projectadd.html">新项目添加</a></li>
+          </ul>
+        </li>
+        <li class="ripple"> <a class="tree-toggle nav-header"> <span class="fa-diamond fa"></span> 员工管理 <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+          <ul class="nav nav-list tree">
+            <li><a href="stafflist.html">员工信息查询</a></li>
+            <li><a href="staffadd.html">新员工注册</a></li>
+          </ul>
+        </li>
+        <!-- <li class=" ripple"> <a class="tree-toggle nav-header"><span class="fa fa-check-square-o"></span> 首页 <span class="fa-angle-right fa right-arrow text-right"></span> </a> </li>
+        <li class=" ripple"> <a class="tree-toggle nav-header"><span class="fa fa-calendar-o"></span> 首页 <span class="fa-angle-right fa right-arrow text-right"></span> </a> </li> -->
+      </ul>
+    </div>
+  </div>
+  <!-- end: Left Menu --> 
+  
+  <!-- start: content -->
+  <div id="content">
+      <div class="panel">
+          <div class="panel-body">
+            <div class="col-md-12">
+              <h3 class="animated fadeInLeft" style="font-size: 50px;">新客户添加页面</h3>
+              <p class="animated fadeInDown"> 客户管理 <span class="fa-angle-right fa"></span> 新客户添加 </p>
+            </div>
+          </div>
+        </div>
+        <div class="form-element">
+          <div class="col-md-12 padding-0">
+            <div class="col-md-12">
+              <div class="panel form-element-padding">
+                <div class="panel-heading">
+                  <h4>信息表单</h4>
+                </div>
+                <div class="panel-body" style="padding-bottom:30px;">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="col-sm-1 control-label text-right">姓名:</label>
+                      <div class="col-sm-2">
+                        <input type="text" class="form-control" name="customerName">
+                      </div>
+                      <label class="col-sm-1 control-label text-right">手机号码:</label>
+                      <div class="col-sm-2">
+                        <input type="text" class="form-control customerPhone" name="customerPhone">
+                      </div>
+                      <label class="col-sm-1 control-label text-right">性别:</label>
+                      <div class="col-sm-2">
+                        <!-- <input id="man" type="radio" name="radio" value="男" />男
+                        <input id="woman" type="radio"  name="radio" value="女"/>女 -->
+                        <input type="text" class="form-control" name="customerGender">
+                      </div>
+                      <label class="col-sm-1 control-label text-right">电子邮箱:</label>
+                      <div class="col-sm-2">
+                        <input type="email" class="form-control customerEmail" name="customerEmail">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-1 control-label text-right">委托时间:</label>
+                      <div class="col-sm-2">
+                        <input type="date" class="form-control" name="customerTime">
+                      </div>
+                      <label class="col-sm-1 control-label text-right">项目需求详情:</label>
+                      <div class="col-sm-2">
+                        <!-- <input type="text" class="form-control" name="customerDesc"> -->
+                        <textarea name="txt" clos="100" rows="5" warp="virtual" id="customerDesc"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 text-center" style="margin:20px;">
+                  <input class="submit btn btn-danger" type="submit" value="提交">
+                </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <!-- end: content --> 
+  
+</div>
+
+<!-- start: Javascript --> 
+<script src="../asset/js/jquery.min.js"></script> 
+<script src="../asset/js/jquery.ui.min.js"></script> 
+<script src="../asset/js/bootstrap.min.js"></script> 
+<!-- plugins --> 
+<script src="../asset/js/plugins/jquery.nicescroll.js"></script> 
+<!-- custom --> 
+<script src="../asset/js/main.js"></script> 
+<!-- end: Javascript -->
+<div style="text-align:center;">
+<div class="text-center" style="padding:5px;position: fixed;bottom: 0;left: 50%;"> Copyright@C·Kugua(ckugua.com) all rights reserved 2018-2019 </div>
+</div>
+</body>
+
+<script>
+  var userInfo=JSON.parse(localStorage.getItem('userInfo'))
+  var logoutFun=function (){
+    if(!userInfo){
+      location.href="../login.html";
+      return;
+    }
+  }
+  logoutFun();
+  $('.user-name span').html(userInfo.empName);
+  //鼠标失焦事件
+   
+    // alert(customerDesc)
+    
+  // $(".customerPhone").blur(function(){
+  //   var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+  //   if (!myreg.test(customerPhone)) {
+  //     alert('请输入正确格式的手机号!')
+  //   }
+  // });
+  // $('.customerEmail').blur(function(){
+  //   var myreg=/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+  //   if (!myreg.test(customerEmail)) {
+  //     alert('请输入正确格式的电子邮箱号!')
+  //   }
+  // })
+  $('.btn').on('click',function(){
+    // var customerGender= $("input[name='radio']:checked").val();
+    // console.log(customerGender)
+    var customerName= $('input[name="customerName"]').val();
+    var customerPhone= $('input[name="customerPhone"]').val();
+    var customerGender= $('input[name="customerGender"]').val();
+    var customerEmail= $('input[name="customerEmail"]').val();
+    var customerTime= $('input[name="customerTime"]').val();
+    var customerDesc= $('#customerDesc').val();
+    $.ajax({
+        url:'../cust/add',
+        type: 'POST',
+        async:true,
+        dataType:'json',
+        data:{
+          customerName:customerName,
+          customerPhone:customerPhone,
+          customerGender:customerGender,
+          customerEmail:customerEmail,
+          customerTime:customerTime,
+          customerDesc:customerDesc,
+        },
+        success:function(res){
+            console.log(res)
+            if(res.rtnCode==1){
+              location.href='customer.html'
+            }
+        }
+    })
+})
+$('.logout').on('click',function(){
+    localStorage.removeItem('userInfo');
+    alert(1)
+    location.href="../login.html"
+  })
+</script>
+</html>

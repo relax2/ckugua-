@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Pro">
+	<resultMap type="com.ckuguaerp.entity.ProEntity" id="proResult">
+		<id property="proId" column="pro_id"/>
+		<result property="proJia" column="pro_jia"/>
+		<result property="proName" column="pro_name"/>
+		<result property="proStart" column="pro_start"/>
+		<result property="proEnd" column="pro_end"/>
+		<result property="proStatus" column="pro_status"/>
+	</resultMap>
+	
+	<!-- 添加项目信息 -->
+	<insert id="insertOne" parameterType="com.ckuguaerp.entity.ProEntity">
+		insert into kugua_pro (pro_jia,pro_name,pro_start,pro_end,pro_status) values (#{proJia},#{proName},#{proStart},#{proEnd},#{proStatus})
+	</insert>
+	
+	<!-- 根据ID查询项目信息 -->
+	<select id="selectByProId" parameterType="com.ckuguaerp.entity.ProEntity" resultMap="proResult">
+		select * from kugua_pro where pro_id = #{proId}
+	</select>
+	
+	<!-- 修改项目信息 -->
+	<update id="updateByProId" parameterType="com.ckuguaerp.entity.ProEntity"> 
+		update kugua_pro 
+		<set>
+			<if test="proName != null and proName != ''">
+				pro_name = #{proName},
+			</if>
+			<if test="proJia != null and proJia != ''">
+				pro_jia = #{proJia},
+			</if>
+			<if test="proStart != null and proStart != ''">
+				pro_start = #{proStart},
+			</if>
+			<if test="proEnd != null and proEnd != ''">
+				pro_end = #{proEnd},
+			</if>
+		</set>
+		where pro_id = #{proId}
+	</update>
+	<!-- 查询项目列表 -->
+	<select id="queryByPro" parameterType="com.ckuguaerp.entity.ProEntity" resultMap="proResult">
+		select * from kugua_pro where pro_status = 1;
+	</select>
+	
+	<!-- 删除项目信息 -->
+	<update id="delByProId" parameterType="com.ckuguaerp.entity.ProEntity">
+		update kugua_pro set pro_status = 0 where pro_id = #{proId}
+	</update>
+
+</mapper>

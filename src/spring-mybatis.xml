@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+	<!-- 读取数据库连接配置 -->
+	<!-- PropertyPlaceholderConfigurer工具加载项目中的属性配置文件 -->
+	<bean id="ppc" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<!-- 可以根据情况添加多个配置文件 -->
+				<value>classpath:config/jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<property name="name" value="${ds.name}" />
+		<property name="url" value="${ds.url}" />
+		<property name="username" value="${ds.username}" />
+		<property name="password" value="${ds.password}" />
+		<property name="driverClassName" value="${ds.driverClassName}" />
+		<property name="filters" value="${ds.filters}" />
+		<property name="initialSize" value="${ds.initialSize}" />
+		<property name="maxActive" value="${ds.maxActive}" />
+		<property name="minIdle" value="${ds.minIdle}" />
+		<property name="maxWait" value="${ds.maxWait}" />
+		<property name="poolPreparedStatements" value="${ds.poolPreparedStatements}" />
+		<property name="maxOpenPreparedStatements" value="${ds.maxOpenPreparedStatements}" />
+	</bean>
+
+	
+	<!-- SqlSessionFactory工厂类,注意：class不是SqlSessionFactory而是SqlSessionFactoryBean -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:orm/configuration.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- SqlSession配置,注意：class不是SqlSession而是SqlSessionTemplate -->
+	<!-- SqlSession是线程级别的对象不可重用,SqlSessionTemplate可重用,不必让spring框架重复创建和关闭sqlSession对象 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+</beans>

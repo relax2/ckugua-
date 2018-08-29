@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="C·Kugua工作室管理系统">
+<meta name="author" content="C·Kugua工作室管理系统">
+<meta name="keyword" content="C·Kugua工作室管理系统">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../favicon.ico"/>
+<title>C·Kugua工作室管理系统</title>
+<!-- start: Css -->
+<link rel="stylesheet" type="text/css" href="../asset/css/bootstrap.min.css">
+<!-- plugins -->
+<link rel="stylesheet" type="text/css" href="../asset/css/plugins/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../asset/css/plugins/simple-line-icons.css"/>
+<link rel="stylesheet" type="text/css" href="../asset/css/plugins/animate.min.css"/>
+<link rel="stylesheet" type="text/css" href="../asset/css/plugins/fullcalendar.min.css"/>
+<link href="../asset/css/style.css" rel="stylesheet">
+<!-- end: Css -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="../asset/js/html5shiv.min.js"></script>
+      <script src="../asset/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body id="mimin" class="dashboard">
+<!-- start: Header -->
+<nav class="navbar navbar-default header navbar-fixed-top">
+  <div class="col-md-12 nav-wrapper">
+    <div class="navbar-header" style="width:100%;">
+      <div class="opener-left-menu is-open"> <span class="top"></span> <span class="middle"></span> <span class="bottom"></span> </div>
+      <a href="index.html" class="navbar-brand"> <b>C·Kugua工作室</b> </a>
+      <ul class="nav navbar-nav navbar-right user-nav">
+        <li class="user-name"><span></span></li>
+        <li class="dropdown avatar-dropdown"> <img src="../asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
+          <ul class="dropdown-menu user-dropdown">
+            <li class="logout"><a href="javascript:;"><span class="fa fa-power-off"></span> 退出登录</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- end: Header -->
+<div class="container-fluid mimin-wrapper"> 
+  <!-- start:Left Menu -->
+  <div id="left-menu">
+    <div class="sub-left-menu scroll">
+      <ul class="nav nav-list">
+        <li>
+          <div class="left-bg"></div>
+        </li>
+        <li class="ripple"><a href="index.html"><span class="fa-home fa"></span>首页<span class="fa-angle-right fa right-arrow text-right"></span></a></li>
+        <li class=" ripple"> <a class="tree-toggle nav-header"><span class="fa fa-check-square-o"></span> 客户管理 <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+          <ul class="nav nav-list tree">
+            <li><a href="customer.html">客户信息查询</a></li>
+            <li><a href="customeradd.html">新客户添加</a></li>
+          </ul>
+        </li>
+        <li class=" ripple"> <a class="tree-toggle nav-header"><span class="fa fa-check-square-o"></span> 项目管理 <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+          <ul class="nav nav-list tree">
+            <li><a href="project.html">项目信息查询</a></li>
+            <li><a href="projectadd.html">新项目添加</a></li>
+          </ul>
+        </li>
+        <li class="ripple"> <a class="tree-toggle nav-header"> <span class="fa-diamond fa"></span> 员工管理 <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+          <ul class="nav nav-list tree">
+            <li><a href="stafflist.html">员工信息查询</a></li>
+            <li><a href="staffadd.html">新员工注册</a></li>
+          </ul>
+        </li>
+        <!-- <li class=" ripple"> <a class="tree-toggle nav-header"  id="left-menu-3"><span class="fa fa-check-square-o"></span> 首页 <span class="fa-angle-right fa right-arrow text-right"></span> </a> </li>
+        <li class=" ripple"> <a class="tree-toggle nav-header"  id="left-menu-4"><span class="fa fa-calendar-o"></span> 首页 <span class="fa-angle-right fa right-arrow text-right"></span> </a> </li> -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- end: Left Menu --> 
+  
+  <!-- start: content -->
+  <div id="content">
+    <div class="panel">
+      <div class="panel-body">
+        <div class="col-md-12">
+          <h3 class="animated fadeInLeft" style="font-size: 50px;">员工信息查询页面</h3>
+          <p class="animated fadeInDown">员工管理<span class="fa-angle-right fa"></span> 员工信息查询 </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 padding-0 form-element">
+      <div class="col-md-12">
+        <div class="panel">
+          <div class="panel-heading">
+            <h3>员工列表</h3>
+          </div>
+          <div class="panel-body">
+            <div class="responsive-table">
+              <div id="datatables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <table class="table table-striped table-bordered dataTable no-footer" width="100%" cellspacing="0"  style="width: 100%;">
+                      <thead>
+                        <tr role="row">
+                          <th class="sorting_asc"style="width: 60px;">编号</th>
+                          <th class="sorting" style="width: 60px;">姓名</th>
+                          <th class="sorting" style="width: 60px;">出生日期</th>
+                          <th class="sorting" style="width: 60px;">性别</th>
+                          <th class="sorting"  style="width: 60px;">部门</th>
+                          <th class="sorting"  style="width: 61px;">手机号</th>
+                          <th class="sorting"  style="width: 61px;">邮箱</th>
+                          <th class="sorting"  style="width: 61px;">入职日期</th>
+                          <th class="sorting"  style="width: 61px;">操作</th>
+                        </tr>
+                      </thead>
+                      <tbody id="listBox">
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end: content --> 
+</div>
+<div style="text-align:center;">
+    <div class="text-center" style="padding:5px;position: fixed;bottom: 0;left: 50%;"> Copyright@C·Kugua(ckugua.com) all rights reserved 2018-2019 </div>
+</div>
+<div class="mark">
+  <!-- <div class="toast">
+      <span></span>
+  </div> -->
+  <div class="mark_container">
+    <div style="width: 100%;" id="updataBox"></div>
+    <button class="updata_btn">修改</button>
+  </div>
+</div>
+<!-- start: Javascript --> 
+<script src="../asset/js/jquery.min.js"></script> 
+<script src="../asset/js/jquery.ui.min.js"></script> 
+<script src="../asset/js/bootstrap.min.js"></script> 
+<!-- plugins --> 
+<script src="../asset/js/plugins/jquery.nicescroll.js"></script> 
+<!-- custom --> 
+<script src="../asset/js/main.js"></script> 
+<script src="../asset/js/template-web.js"></script>
+<!-- 查询列表 -->
+<script type="text/template" id="listTpl">
+  {{each list as value}}
+    <tr role="row" class="even">
+      <td class="sorting_1">{{value.empId}}</td>
+      <td>{{value.empName}}</td>
+      <td>{{value.empBirthday}}</td>
+      <td>{{value.empSex}}</td>
+      <td>{{value.empDept}}</td>
+      <td>{{value.empPhone}}</td>
+      <td>{{value.empEmail}}</td>
+      <td>{{value.empJoinTime}}</td>
+      <td><button class="czBtn" selectdata-id="{{value.empId}}">查询</button><button class="czBtn updata" updatadata-id="{{value.empId}}">修改</button><button class="czBtn del" deldata-id="{{value.empId}}">删除</button></td>
+    </tr>
+  {{/each}}
+</script>
+<!-- 修改功能 -->
+<script type="text/template" id="updataTpl">
+    <div class="item">
+      <label for="male">编号：</label>
+      <input type="text" name="number" id="male" disabled value="{{updatalist.empId}}"/>
+    </div>
+    <div class="item">
+      <label for="male">姓名：</label>
+      <input type="text" name="name" id="male" disabled value="{{updatalist.empName}}"/>
+    </div>
+    <div class="item">
+      <label for="male">出生日期：</label>
+      <input type="date" name="date" id="male" value="{{updatalist.empBirthday}}"/>
+    </div>
+    <div class="item">
+      <label for="male">性别：</label>
+      <input type="text" name="sex" id="male" disabled value="{{updatalist.empSex}}"/>
+    </div>
+    <div class="item">
+      <label for="male">部门：</label>
+      <input type="text" name="dept" id="male" disabled value="{{updatalist.empDept}}"/>
+    </div>
+    <div class="item">
+      <label for="male">手机号：</label>
+      <input type="text" name="phone" id="male" value="{{updatalist.empPhone}}"/>
+    </div>
+    <div class="item">
+      <label for="male">邮箱：</label>
+      <input type="email" name="email" id="male" value="{{updatalist.empEmail}}"/>
+    </div>
+    <div class="item">
+      <label for="male">入职日期：</label>
+      <input type="text" name="sex" id="male" disabled value="{{updatalist.empJoinTime}}"/>
+    </div>
+</script>
+
+<!-- end: Javascript -->
+<script>
+  var userInfo=JSON.parse(localStorage.getItem('userInfo'))
+  console.log(userInfo)
+  console.log(userInfo.empName)
+  var logoutFun=function (){
+    if(!userInfo){
+      location.href="../login.html";
+      return;
+    }
+  }
+  logoutFun();
+  $('.user-name span').html(userInfo.empName);
+$("#left-menu-2").click() ;
+var fun=function(){
+  $.ajax({
+      url:'../emp/list',
+      type: 'POST',
+      async:true,
+      dataType:'json',
+      success:function(res){
+          console.log(res)
+          if(res.rtnCode==1){
+            var html = template('listTpl', {list:res.emps});
+            $('#listBox').html(html);
+          }
+      }
+  })
+}
+// 修改事件查询信息
+$('body').on('click','.updata',function(){
+  $('.mark').show();
+  var empId=$(this).attr('updatadata-id')
+  console.log(empId)
+  $.ajax({
+      url:'../emp/one',
+      type: 'POST',
+      async:true,
+      dataType:'json',
+      data:{
+        empId:empId
+      },
+      success:function(res){
+          console.log(res)
+          if(res.rtnCode==1){
+            var html = template('updataTpl', {updatalist:res.data});
+            $('#updataBox').html('');
+            $('#updataBox').append(html);
+          }
+      }
+  })
+    //修改数据事件
+  $('body').on('click','.updata_btn',function(){
+    $('.mark').hide();
+    var empBirthday= $('input[name="date"]').val();
+    var empPhone= $('input[name="phone"]').val();
+    var empEmail= $('input[name="email"]').val();
+    console.log(empId)
+    console.log(empBirthday)
+    console.log(empPhone)
+    console.log(empEmail)
+    $.ajax({
+        url:'../emp/mod',
+        type: 'POST',
+        async:true,
+        dataType:'json',
+        data:{
+          empId:empId,
+          empBirthday:empBirthday,
+          empPhone:empPhone,
+          empEmail:empEmail
+        },
+        success:function(res){
+            console.log(res)
+            if(res.rtnCode==1){
+              location.reload();
+            }
+        }
+    })
+  })
+})
+
+// 删除事件
+$('body').on('click','.del',function(){
+  var empId=$(this).attr('deldata-id')
+  console.log(empId)
+  $.ajax({
+      url:'../emp/del',
+      type: 'POST',
+      async:true,
+      dataType:'json',
+      data:{
+        empId:empId
+      },
+      success:function(res){
+          console.log(res)
+          if(res.rtnCode==1){
+            location.reload();
+          }
+      }
+  })
+})
+fun();
+$('.logout').on('click',function(){
+    localStorage.removeItem('userInfo');
+    alert(1)
+    location.href="../login.html"
+  })
+</script>
+</body>
+</html>

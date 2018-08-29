@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="C·Kugua工作室管理系统">
+<meta name="author" content="C·Kugua工作室管理系统">
+<meta name="keyword" content="C·Kugua工作室管理系统">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../favicon.ico"/>
+<title>C·Kugua工作室管理系统</title>
+<!-- start: Css -->
+<link rel="stylesheet" type="text/css" href="../asset/css/bootstrap.min.css">
+<!-- plugins -->
+<link rel="stylesheet" type="text/css" href="../asset/css/plugins/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../asset/css/plugins/simple-line-icons.css"/>
+<link rel="stylesheet" type="text/css" href="../asset/css/plugins/animate.min.css"/>
+<link rel="stylesheet" type="text/css" href="../asset/css/plugins/fullcalendar.min.css"/>
+<link href="../asset/css/style.css" rel="stylesheet">
+<!-- end: Css -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="../asset/js/html5shiv.min.js"></script>
+      <script src="../asset/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body id="mimin" class="dashboard">
+<!-- start: Header -->
+<nav class="navbar navbar-default header navbar-fixed-top">
+  <div class="col-md-12 nav-wrapper">
+    <div class="navbar-header" style="width:100%;">
+      <div class="opener-left-menu is-open"> <span class="top"></span> <span class="middle"></span> <span class="bottom"></span> </div>
+      <a href="index.html" class="navbar-brand"> <b>C·Kugua工作室</b> </a>
+      <ul class="nav navbar-nav navbar-right user-nav">
+        <li class="user-name"><span></span></li>
+        <li class="dropdown avatar-dropdown"> <img src="../asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
+          <ul class="dropdown-menu user-dropdown">
+            <li class="logout"><a href="javascript:;"><span class="fa fa-power-off"></span> 退出登录</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- end: Header -->
+<div class="container-fluid mimin-wrapper"> 
+  <!-- start:Left Menu -->
+  <div id="left-menu">
+    <div class="sub-left-menu scroll">
+      <ul class="nav nav-list">
+        <li>
+          <div class="left-bg"></div>
+        </li>
+        <li class="ripple"><a href="index.html"><span class="fa-home fa"></span>首页<span class="fa-angle-right fa right-arrow text-right"></span></a></li>
+        <li class=" ripple"> <a class="tree-toggle nav-header"><span class="fa fa-check-square-o"></span> 客户管理 <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+          <ul class="nav nav-list tree">
+            <li><a href="customer.html">客户信息查询</a></li>
+            <li><a href="customeradd.html">新客户添加</a></li>
+          </ul>
+        </li>
+        <li class=" ripple"> <a class="tree-toggle nav-header"><span class="fa fa-check-square-o"></span> 项目管理 <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+          <ul class="nav nav-list tree">
+            <li><a href="project.html">项目信息查询</a></li>
+            <li><a href="projectadd.html">新项目添加</a></li>
+          </ul>
+        </li>
+        <li class="ripple"> <a class="tree-toggle nav-header"  id="left-menu-2"> <span class="fa-diamond fa"></span> 员工管理 <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+          <ul class="nav nav-list tree" >
+            <li><a href="stafflist.html">员工信息查询</a></li>
+            <li><a href="staffadd.html">新员工注册</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- end: Left Menu --> 
+  
+  <!-- start: content -->
+  <div id="content">
+    <div class="panel">
+      <div class="panel-body">
+        <div class="col-md-12">
+          <h3 class="animated fadeInLeft" style="font-size: 50px;">新项目增加页面</h3>
+          <p class="animated fadeInDown"> 项目管理 <span class="fa-angle-right fa"></span> 新项目增加 </p>
+        </div>
+      </div>
+    </div>
+    <div class="form-element">
+      <div class="col-md-12 padding-0">
+        <div class="col-md-12">
+          <div class="panel form-element-padding">
+            <div class="panel-heading">
+              <h4>信息表单</h4>
+            </div>
+            <div class="panel-body" style="padding-bottom:30px;">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-sm-1 control-label text-right">甲方:</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" name="proJia">
+                  </div>
+                  <label class="col-sm-1 control-label text-right">项目名称:</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" name="proName">
+                  </div>
+                  <label class="col-sm-1 control-label text-right">起始时间:</label>
+                  <div class="col-sm-2">
+                    <input type="date" class="form-control" name="proStart">
+                  </div>
+                  <label class="col-sm-1 control-label text-right">结束时间:</label>
+                  <div class="col-sm-2">
+                    <input type="date" class="form-control" name="proEnd">
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 text-center" style="margin:20px;">
+              <input class="submit btn btn-danger" type="submit" value="提交">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end: content --> 
+  
+</div>
+<div style="text-align:center;">
+    <div class="text-center" style="padding:5px;position: fixed;bottom: 0;left: 50%;"> Copyright@C·Kugua(ckugua.com) all rights reserved 2018-2019 </div>
+    </div>
+<!-- start: Javascript --> 
+<script src="../asset/js/jquery.min.js"></script> 
+<script src="../asset/js/jquery.ui.min.js"></script> 
+<script src="../asset/js/bootstrap.min.js"></script> 
+<!-- plugins --> 
+<script src="../asset/js/plugins/jquery.nicescroll.js"></script> 
+<!-- custom --> 
+<script src="../asset/js/main.js"></script> 
+<!-- end: Javascript -->
+<script>
+  var userInfo=JSON.parse(localStorage.getItem('userInfo'))
+  console.log(userInfo)
+  console.log(userInfo.empName)
+  var logoutFun=function (){
+    if(!userInfo){
+      location.href="../login.html";
+      return;
+    }
+  }
+  logoutFun();
+  $('.user-name span').html(userInfo.empName);
+$("#left-menu-2").click() ;
+$('.btn').on('click',function(){
+  var proJia= $('input[name="proJia"]').val();
+  var proEnd= $('input[name="proEnd"]').val();
+  var proStart= $('input[name="proStart"]').val();
+  var proName= $('input[name="proName"]').val();
+  console.log(proJia)
+  console.log(proEnd)
+  console.log(proStart)
+  console.log(proName)
+  $.ajax({
+      url:'../pro/insert',
+      type: 'POST',
+      async:true,
+      dataType:'json',
+      data:{
+        proJia:proJia,
+        proName:proName,
+        proStart:proStart,
+        proEnd:proEnd
+      },
+      success:function(res){
+          console.log(res)
+          if(res.rtnCode==1){
+            location.href='project.html'
+          }
+      }
+  })
+})
+$('.logout').on('click',function(){
+    localStorage.removeItem('userInfo');
+    alert(1)
+    location.href="../login.html"
+  })
+</script>
+</body>
+</html>

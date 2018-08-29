@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="Customer">
+  	<resultMap type="com.ckuguaerp.entity.Customer" id="customerResult">
+  		<id column="customer_id" property="customerId"/>
+  		<result column="customer_name" property="customerName" />
+  		<result column="customer_desc" property="customerDesc" />
+  		<result column="customer_phone" property="customerPhone" />
+  		<result column="customer_gender" property="customerGender" />
+  		<result column="customer_email" property="customerEmail" />
+  		<result column="customer_time" property="customerTime" />
+  		<result column="customer_status" property="customerStatus" />
+  	</resultMap>
+  	
+  	<select id="queryCustById" parameterType="com.ckuguaerp.entity.Customer" resultMap="customerResult">
+  		select * from kugua_customer where customer_id = #{customerId} and customer_status = 1
+  	</select>
+  	
+  	<insert id="addCust" parameterType="com.ckuguaerp.entity.Customer">
+		insert into kugua_customer (customer_time,customer_email,customer_gender,customer_phone,customer_Desc,customer_name)
+		 values (#{customerTime},#{customerEmail},#{customerGender},#{customerPhone},#{customerDesc},#{customerName})
+	</insert>
+		
+  	<select id="queryCustByList" parameterType="com.ckuguaerp.entity.Customer" resultMap="customerResult">
+  		select * from kugua_customer where customer_status = 1
+  	
+  	</select>
+    <update id="updateCust" parameterType="com.ckuguaerp.entity.Customer" >
+  		update kugua_customer 
+  		<trim prefix="set" suffixOverrides=",">
+  			<if test="customerName !=null ">
+  				customer_name = #{customerName},
+  			</if>
+  			<if test="customerPhone !=null">
+  				customer_phone = #{customerPhone},
+  			</if>
+  			<if test="customerGender !=null ">
+  				customer_gender = #{customerGender},
+  			</if>
+  			<if test="customerEmail !=null  ">
+  				customer_email = #{customerEmail},
+  			</if>
+  			<if test="customerTime !=null  ">
+  				customer_time = #{customerTime},
+  			</if>
+  		</trim>
+  		where customer_id = #{customerId}
+  	</update>
+	<update id="delCust" parameterType="com.ckuguaerp.entity.Customer">
+			update  kugua_customer set customer_status = 0 where customer_id = #{customerId}
+	</update>
+  </mapper>
